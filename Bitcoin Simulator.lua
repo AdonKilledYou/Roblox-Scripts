@@ -1,5 +1,4 @@
 getgenv().autoExchange = false
-getgenv().autoExchange2 = false
 getgenv().autoBoost = false
 getgenv().autoBoost = false
 
@@ -11,13 +10,6 @@ function doExchange()
             local args = {[1] = true}
             remotePath.Events.ExchangeMoney:FireServer(unpack(args))
             wait()
-        end
-    end)
-end
-
-function doExchange2()
-    spawn (function()
-        while autoExchange2 == true do
             local args = {[1] = false}
             remotePath.Events.ExchangeMoney:FireServer(unpack(args))
             wait()
@@ -54,19 +46,11 @@ local b = w:CreateFolder("Auto Farm") -- Creates the folder(U will put here your
 
 b:DestroyGui()
 
-b:Toggle("Auto Exchange Bitcoin",function(bool)
+b:Toggle("Auto Exchange",function(bool)
     getgenv().autoExchange = bool
     print('Auto Exchange Solaris is', bool)
     if bool then
         doExchange()
-    end
-end)
-
-b:Toggle("Auto Exchange Solaris",function(bool)
-    getgenv().autoExchange2 = bool
-    print('Auto Exchange Bitcoin is', bool)
-    if bool then
-        doExchange2()
     end
 end)
 
