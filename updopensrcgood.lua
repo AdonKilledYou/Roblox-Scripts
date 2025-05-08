@@ -156,7 +156,7 @@ Library:SetWatermark("Float.Balls [UMT]")
 --Main Script Function [Messy Code, there is better ways ik]
 
 task.spawn(function()
-    while true do task.wait(.2)
+    while true do task.wait(.05)
         if Settings.Farming.AutoMine == true and Character.OrePackCargo:GetAttribute("NumContents") ~= PlayersBackpack:GetAttribute("Capacity") then
             local min = Character:GetPivot() + Vector3.new(-Settings.Farming.AutoMineRange,-Settings.Farming.AutoMineRange,-Settings.Farming.AutoMineRange)
             local max = Character:GetPivot() + Vector3.new(Settings.Farming.AutoMineRange,Settings.Farming.AutoMineRange,Settings.Farming.AutoMineRange)
@@ -175,7 +175,7 @@ task.spawn(function()
     end
 end)
 task.spawn(function()
-    while true do task.wait(.1)
+    while true do task.wait(.05)
         PlayersBackpack = Character:WaitForChild("OrePackCargo",5)
         Tool = GetTool()
         if Settings.Farming.AutoSell == true and Selling == false then
@@ -183,9 +183,9 @@ task.spawn(function()
             if Character.OrePackCargo:GetAttribute("NumContents") == PlayersBackpack:GetAttribute("Capacity") then
                 Selling = true
                 Character:PivotTo(PlayersUnloader:GetPivot()+Vector3.new(0,3,0))
-                task.wait(.2)
+                task.wait(.05)
                 fireproximityprompt(PlayersUnloader.Unloader.CargoVolume.CargoPrompt)
-                task.wait(.1)
+                task.wait(.05)
                 Character:PivotTo(OldPlayerPosition)
                 Selling = false
             end
